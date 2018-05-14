@@ -16,6 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <provider
+            android:authorities="gr.hua.ictapps.android.persistenceapplication"
+            android:name=".ContactsContentProvider"/>
     </application>
 
 </manifest>

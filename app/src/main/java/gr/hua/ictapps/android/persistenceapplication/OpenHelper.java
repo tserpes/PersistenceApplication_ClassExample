@@ -44,9 +44,21 @@ public class OpenHelper extends SQLiteOpenHelper {
         database.insert(TABLE_NAME,null,values);
     }
 
+    public long addRecord(ContentValues values){
+        SQLiteDatabase database = this.getWritableDatabase();
+        long result = database.insert(TABLE_NAME,null,values);
+        return result;
+    }
+
     public Cursor getRecords(){
         SQLiteDatabase database = this.getReadableDatabase();
         Cursor cursor = database.query(TABLE_NAME,null,null,null,null,null,null);
+        return cursor;
+    }
+
+    public Cursor getRecords(int id){
+        SQLiteDatabase database = this.getReadableDatabase();
+        Cursor cursor = database.query(TABLE_NAME,null,KEY_ID+"=?",new String[]{id+""},null,null,null);
         return cursor;
     }
 
